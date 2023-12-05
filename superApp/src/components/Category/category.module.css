@@ -1,0 +1,116 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  color: white;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: 2fr 2fr 1fr;
+}
+.head {
+  grid-row-start: 1;
+  grid-row-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 5em 8em;
+}
+.super {
+  color: #72db73;
+  font-family: "Single Day", cursive;
+  line-height: 2em;
+  font-size: 4em;
+}
+.choose {
+  font-family: "Roboto", sans-serif;
+  font-size: 3em;
+}
+.genre {
+  background-color: black;
+  padding: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  flex-direction: row;
+}
+.genrebox {
+  background-color: green;
+  font-family: "DM Sans", sans-serif;
+  color: white;
+  width: 8em;
+  height: 3em;
+  border-radius: 3em;
+  margin: 1em;
+}
+
+.options {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  background-color: black;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 2em;
+}
+.mvbutton {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
+  margin: 1em;
+}
+.mvbutton:hover {
+  border: 2em;
+}
+.action {
+  background-image: url("/Users/lakshya_mangal/Desktop/cuvette/super_app/Super_app/superApp/src/assets/images/action.png");
+}
+.drama {
+  background-image: url("/Users/lakshya_mangal/Desktop/cuvette/super_app/Super_app/superApp/src/assets/images/drama.png");
+}
+.fantasy {
+  background-image: url("/Users/lakshya_mangal/Desktop/cuvette/super_app/Super_app/superApp/src/assets/images/fantasy.png");
+}
+.fiction {
+  background-image: url("/Users/lakshya_mangal/Desktop/cuvette/super_app/Super_app/superApp/src/assets/images/fiction.png");
+}
+.horror {
+  background-image: url("/Users/lakshya_mangal/Desktop/cuvette/super_app/Super_app/superApp/src/assets/images/horror.png");
+}
+.music {
+  background-image: url("/Users/lakshya_mangal/Desktop/cuvette/super_app/Super_app/superApp/src/assets/images/music.png");
+}
+.romance {
+  background-image: url("/Users/lakshya_mangal/Desktop/cuvette/super_app/Super_app/superApp/src/assets/images/romance.png");
+}
+.thriller {
+  background-image: url("/Users/lakshya_mangal/Desktop/cuvette/super_app/Super_app/superApp/src/assets/images/thriller.png");
+}
+.western {
+  background-image: url("/Users/lakshya_mangal/Desktop/cuvette/super_app/Super_app/superApp/src/assets/images/western.png");
+}
+.next {
+  background-color: black;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  padding: 4em;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nxbutton {
+  background-color: green;
+  font-family: "DM Sans", sans-serif;
+  color: white;
+  width: 9em;
+  border-radius: 3em;
+}
+.error {
+  color: red;
+}
