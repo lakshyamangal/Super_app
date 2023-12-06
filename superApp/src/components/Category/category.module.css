@@ -44,7 +44,11 @@
   border-radius: 3em;
   margin: 1em;
 }
-
+.cancel {
+  line-height: 1em;
+  font-weight: 500;
+  padding-left: 1em;
+}
 .options {
   grid-row-start: 1;
   grid-row-end: 3;
@@ -111,6 +115,6 @@
   width: 9em;
   border-radius: 3em;
 }
-.error {
+.errMes {
   color: red;
 }

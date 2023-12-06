@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-// import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Styles from "/Users/lakshya_mangal/Desktop/cuvette/super_app/Super_app/superApp/src/components/Category/category.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTriangleExclamation,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
 function SelectCategory() {
   //variable declaration
-  // let [visible, setVisible] = useState(false);
-  // const history = useHistory();
+  let visible = false;
+  const navigate = useNavigate();
   const [items, setItems] = useState([]);
   let genreString = JSON.stringify(items);
   localStorage.setItem("genreArray", genreString);
@@ -15,10 +18,9 @@ function SelectCategory() {
 
   //functions
   function handler(e) {
-    console.log(e.target.id);
+    console.log(e);
     let answer = e.target.id;
     let boo = false;
-    console.log(items);
 
     items.map((genre) => {
       if (answer == genre.id) boo = true;
@@ -37,15 +39,11 @@ function SelectCategory() {
   function deleteFunc(answer) {
     setItems(items.filter((genre) => genre.id != answer));
   }
-  console.log(items.length);
-
-  // function erHandler() {
-  //   if (items.length >= 3) {
-  //     history.push("/next");
-  //   } else {
-  //     setVisible(true);
-  //   }
-  //
+  //changing visible
+  if (items.length < 3) visible = true;
+  function errHndler() {
+    if (!visible) navigate("/next");
+  }
 
   return (
     <div className={Styles.container}>
@@ -54,12 +52,20 @@ function SelectCategory() {
         <p className={Styles.choose}>Choose your entertainment category</p>
         <div className={Styles.genre}>
           {items.map((i) => (
-            <button className={Styles.genrebox} id={i.id} onClick={handler}>
+            <button className={Styles.genrebox}>
               {i.id}
+              <span className={Styles.cancel} id={i.id} onClick={handler}>
+                x
+              </span>
             </button>
           ))}
         </div>
-        <div>*minimum 3 category required</div>
+        {visible && (
+          <div className={Styles.errMes}>
+            <FontAwesomeIcon icon={faTriangleExclamation} /> minimum 3 category
+            required
+          </div>
+        )}
       </div>
 
       <div className={Styles.options}>
@@ -110,7 +116,11 @@ function SelectCategory() {
         ></button>
       </div>
       <div className={Styles.next}>
-        <button className={Styles.nxbutton}>Next Page</button>
+        {!visible && (
+          <button className={Styles.nxbutton} onClick={errHndler}>
+            Next Page
+          </button>
+        )}
       </div>
     </div>
   );
